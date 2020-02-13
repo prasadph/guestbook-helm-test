@@ -18,7 +18,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: redis-master
+  name: {{ include "helm-test.fullname" . }}-redis-master
   labels:
     app: redis
     role: master
@@ -34,7 +34,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: redis-slave
+  name: {{ include "helm-test.fullname" . }}-redis-slave
   labels:
     app: redis
     role: slave
@@ -50,24 +50,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: redis-master
-  labels:
-    app: redis
-    role: master
-spec:
-  ports:
-  - port: 6379
-    targetPort: redis-server
-  selector:
-    app: redis
-    role: master
-
-
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: guestbook
+  name: {{ include "helm-test.fullname" . }}-guestbook
   labels:
     app: guestbook
     branch: master 
