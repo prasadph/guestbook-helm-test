@@ -114,6 +114,7 @@ metadata:
   name: guestbook
   labels:
     app: guestbook
+    branch: master 
 spec:
   ports:
   - port: 3000
